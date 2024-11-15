@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width='device-width', initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table{
+        border-collapse: collapse;
+    }
+    tr, td{
+        border: 1px solid #333;
+    }
+    td{
+        padding: 10px;
+    }
+</style>
+<body>
+    <h3>Giỏ hàng</h3>
+    <table>
+        <tr>
+            <th>STT</th>
+            <th>Tên</th>
+            <th>Giá</th>
+            <th>Hình ảnh</th>
+        </tr>
+        <tbody id="sp">
+            
+        </tbody>
+    </table>
+    <h3>Tổng tiền: <span id="tongtien"></span></h3>
+</body>
+<script>
+    let cart = JSON.parse(localStorage.getItem('cart'));
+    function showCart(){
+        let kq = '';
+        let tong = 0;
+        for(let i = 0; i<cart.length; i++){
+            kq += `
+            <tr>
+                <td><img src="${cart[i].img}" alt=""></td>
+                <td>${cart[i].name}</td>
+                <td>${cart[i].price}</td>
+                <td>
+                    <input type="number" value="${cart[i].quantity}" onmouseup="update(this);">
+                </td>
+                <td><button>Xóa</button></td>
+            </tr>
+            `;
+            tong += cart[i].price * cart[i].quantity;
+        }
+        document.getElementById('sp').innerHTML = kq;
+        document.getElementById('tongtien').innerHTML = tong;
+    }
+    function update(inp){
+        let tong = 0;
+        for(let i= 0; i < cart.length ; i++){
+            if(cart[i].name === inp.parentElement.parentElement.children[1].innerText){
+                cart[i].quantity = inp.value;
+                localStorage.setItem('cart', JSON.stringify(cart));
+            }
+        }
+        let cart2 = JSON.parse(localStorage.getItem('cart'));
+        for(let i= 0; i < cart2.length ; i++){
+            tong += cart2[i].quantity * cart2[i].price;
+        }
+        document.getElementById('tongtien').innerHTML = tong;
+    }
+    showCart();
+</script>
+</html>
