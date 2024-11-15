@@ -22,5 +22,4 @@ function loadNewPro(){
 
 function load(){
     console.log('hello world');
-    
 }
