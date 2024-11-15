@@ -20,3 +20,7 @@ function loadNewPro(){
     document.getElementById('newpro').innerHTML = kq;
 }
 
+function load(){
+    console.log('hello world');
+    
+}
