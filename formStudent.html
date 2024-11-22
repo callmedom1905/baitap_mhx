@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="abc">
+      <form action=""></form>
+    </div>
+  </body>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const abc = Vue.createApp({
+      data() {
+        return {
+          students: [
+            { name: "Minh", score: 10 },
+            { name: "Huy", score: 9 },
+            { name: "Bảo", score: 8 },
+            { name: "Khanh", score: 10 },
+          ],
+        };
+      },
+    });
+    abc.mount("#abc");
+  </script>
+</html>

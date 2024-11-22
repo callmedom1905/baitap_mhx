@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    img{
+        width: 300px;
+    }
+</style>
+<body>
+    <div id="app">
+        <img v-show="showImg" src="image/IMG_2861.JPG" alt="">
+        <ol>
+            <li v-for="i in image">{{i}}</li>
+        </ol>
+        <div v-for="x in image">
+            <img v-bind:src="x" alt="">
+        </div>
+        <h1>Cách 1</h1>
+        <ol>
+            <li v-for="mang in ob">
+                {{mang.name}}
+                <img v-bind:src="mang.url" alt="">
+            </li>
+        </ol>
+        <h1>Cách 2</h1>
+        <div v-for="(x, index) in ob">
+            <span>{{++index}}. </span>
+            <span>{{x.name}}</span>
+            <img v-bind:src="x.url" alt="">
+    </div>
+</body>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script>
+    const app = Vue.createApp({
+        data(){
+            return{
+                showImg: true,
+                image: [
+                    'image/IMG_2395.JPG',                    
+                    'image/IMG_2861.JPG'
+                ],
+                ob:[
+                    {name: 'Xe', url:'image/IMG_2861.JPG'},
+                    {name: 'Diều', url:'image/IMG_2395.JPG'}
+                ],
+            }
+        }
+    })
+    app.mount('#app')
+</script>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    #app {
+      border: dashed black 1px;
+      display: inline-block;
+      padding-bottom: 10px;
+    }
+    #app > button {
+      display: block;
+      margin: auto;
+    }
+
+    #lightDiv > img {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    #lightDiv {
+      position: relative;
+      width: 150px;
+      height: 150px;
+    }
+    #lightDiv > div {
+      position: absolute;
+      top: 10%;
+      left: 10%;
+      width: 80%;
+      height: 80%;
+      border-radius: 50%;
+      background-color: yellow;
+    }
+  </style>
+  <body>
+    <div id="app">
+      <div id="lightDiv">
+        <img v-show="lightOn" src="image/IMG_2395.JPG" alt="" />
+        <img v-show="!lightOn" src="image/IMG_2861.JPG" alt="" />
+      </div>
+      <button v-on:click="lightOn = !lightOn">Light Switch</button>
+    </div>
+  </body>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          lightOn: true,
+        };
+      },
+    });
+    app.mount("#app");
+  </script>
+</html>

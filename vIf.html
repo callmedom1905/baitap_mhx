@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <span>Điểm</span>
+    <input id="diem" type="number" />
+    <button onclick="">Kết quả</button>
+    <div id="app">
+      <p v-if="diem < 5">Yếu</p>
+      <p v-else-if="diem < 7">Trung Bình</p>
+      <p v-else-if="diem < 8">Khá</p>
+      <p v-else>Giỏi</p>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            diem: document.getElementById("diem").value,
+          };
+        },
+      });
+      app.mount("#app");
+    </script>
+  </body>
+</html>

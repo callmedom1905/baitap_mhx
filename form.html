@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <form action="">
+        <label for="">Email</label>
+        <input type="email" v-model="emailUser" /> <br />
+        <label for="">Password</label>
+        <input type="password" v-model="passwordUser" /> <br />
+        <button @:click="login">Login</button>
+      </form>
+      <button @:click="login">test</button>
+    </div>
+  </body>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          emailUser: "",
+          passwordUser: "",
+          user: [
+            {
+              email: "minh@gmail.com",
+              password: "123",
+            },
+            {
+              email: "chi@gmail.com",
+              password: "123",
+            },
+          ],
+        };
+      },
+      methods: {
+        login() {
+          console.log(this.user);
+          const user = this.user.find(
+            //find là tìm ra phần tử trong mảng
+            (x) => x.email == this.emailUser && x.password == this.passwordUser
+          );
+          if (user) {
+            alert("Login successful!");
+          } else {
+            alert("Login failed!");
+          }
+        },
+      },
+    });
+    app.mount("#app");
+  </script>
+</html> 
