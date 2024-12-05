@@ -1,0 +1,9 @@
+{
+    "products": [
+      { "id": 1, "name": "Iphone 13", "price": 1200 },
+      { "id": 2, "name": "Iphone 14", "price": 1300 },
+      { "id": 3, "name": "Iphone 15", "price": 1400 },
+      { "id": 4, "name": "Iphone 16", "price": 1500 }
+    ]
+  }
+  

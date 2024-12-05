@@ -1,13 +1,13 @@
 <template>
   <div class="item">
     <i>
-      <slot name="icon">hello</slot>
+      <slot name="icon"></slot>
     </i>
     <div class="details">
       <h3>
-        <slot name="heading">minh nè</slot>
+        <slot name="heading"></slot>
       </h3>
-      <slot>fpt polytechnic</slot>
+      <slot></slot>
     </div>
   </div>
 </template>
